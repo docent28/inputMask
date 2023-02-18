@@ -18,20 +18,23 @@ class MainActivity : AppCompatActivity() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                var digits = binding.txtInputMask.text.toString().length
-                var txtTemp = s.toString()
+                var text = ""
+                binding.txtInputMask.text.toString().split(' ').forEach { text += it }
+                val digits = text.length
                 if (s?.length!! < 10) {
-                    var lastChar = ""
-                    if (digits > 1) {
-                        lastChar = binding.txtInputMask.text.toString().substring(digits - 1)
+                    if (binding.txtInputMask.text.length == 5 && digits == 5) {
+                        val numbers = binding.txtInputMask.text.toString()
+                        val result = "${numbers[0]}${numbers[1]}${numbers[2]}${numbers[3]} ${numbers[4]}"
+
+                        binding.txtInputMask.setText(result)
+                        binding.txtInputMask.setSelection(binding.txtInputMask.text.length)
                     }
-                    if (digits == 4) {
-                        binding.txtInputMask.text.append(" ")
+                    else if (digits == 4 && binding.txtInputMask.text.length > 4) {
+                        var txt = binding.txtInputMask.text.toString()
+                        txt = txt.replace(" ", "")
+                        binding.txtInputMask.setText(txt)
+                        binding.txtInputMask.setSelection(binding.txtInputMask.text.length)
                     }
-                } else {
-                    txtTemp = txtTemp.replace(" ", "")
-                    txtTemp = txtTemp.replaceRange(4, 4, " ").substring(0, s?.length!! - 1)
-                    binding.txtInputMask.setText(txtTemp)
                 }
             }
 

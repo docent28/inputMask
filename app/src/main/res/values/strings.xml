@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">inputMask</string>
+    <string name="hint">0000 0000</string>
 </resources>

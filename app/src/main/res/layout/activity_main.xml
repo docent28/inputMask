@@ -12,15 +12,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="6"
+        android:maxLength="9"
         android:gravity="center"
-        android:hint="0000 0000"
-        android:inputType="number|textPersonName|phone"
+        android:hint="@string/hint"
+        android:inputType="number"
         android:textColor="@color/black"
         android:textColorHint="@color/design_default_color_error"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:importantForAutofill="no" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
